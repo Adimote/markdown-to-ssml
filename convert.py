@@ -14,6 +14,9 @@ class Renderer(mistune.Renderer):
         return f"<break time=\"400ms\"/>\n"
     def hrule(self):
         return f"<break time=\"600ms\"/>\n"
+    def image(self, src, title, text):
+        if title:
+            return f"image of {title}"
     def paragraph(self, text):
         return f"{text}<break time=\"100ms\"/>\n"
     def footnote_ref(self, key, index):
