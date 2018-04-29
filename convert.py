@@ -1,6 +1,7 @@
 import mistune
 import sys
 import argparse
+import html
 
 class Renderer(mistune.Renderer):
     def header(self,text,level,raw=None):
@@ -13,6 +14,18 @@ class Renderer(mistune.Renderer):
         return f"<break time=\"400ms\"/>\n"
     def paragraph(self, text):
         return f"{text}<break time=\"100ms\"/>\n"
+    def footnote_ref(self,key,index):
+        return key
+    def autolink(self, link, is_email=False):
+        return ""
+    def link(self,link,title,content):
+        return content
+    def text(self,text):
+        return html.escape(text)
+    def block_code(self,text):
+        return self.text(text)
+    def codespan(self,text):
+        return self.text(text)
 
 renderer = Renderer()
 markdown = mistune.Markdown(renderer=renderer)
