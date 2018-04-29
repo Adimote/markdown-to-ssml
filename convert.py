@@ -4,27 +4,27 @@ import argparse
 import html
 
 class Renderer(mistune.Renderer):
-    def header(self,text,level,raw=None):
+    def header(self, text, level, raw=None):
         return f"{text}<break time=\"{max(4-level,0)}00ms\"/>\n"
-    def emphasis(self,text):
+    def emphasis(self, text):
         return f"<emphasis level=\"moderate\">{text}</emphasis>"
-    def double_emphasis(self,text):
+    def double_emphasis(self, text):
         return f"<emphasis level=\"strong\">{text}</emphasis>"
     def linebreak(self):
         return f"<break time=\"400ms\"/>\n"
     def paragraph(self, text):
         return f"{text}<break time=\"100ms\"/>\n"
-    def footnote_ref(self,key,index):
+    def footnote_ref(self, key, index):
         return key
     def autolink(self, link, is_email=False):
         return ""
-    def link(self,link,title,content):
+    def link(self, link, title, content):
         return content
-    def text(self,text):
+    def text(self, text):
         return html.escape(text)
-    def block_code(self,text):
+    def block_code(self, text):
         return self.text(text)
-    def codespan(self,text):
+    def codespan(self, text):
         return self.text(text)
 
 renderer = Renderer()
