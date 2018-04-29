@@ -18,7 +18,7 @@ class Renderer(mistune.Renderer):
         if title:
             return f"image of {title}"
     def paragraph(self, text):
-        return f"{text}<break time=\"100ms\"/>\n"
+        return f"<p>{text}<break time=\"100ms\"/></p>\n"
     def footnote_ref(self, key, index):
         return key
     def autolink(self, link, is_email=False):
