@@ -1,6 +1,6 @@
 # Markdown to SSML converter
 
-This is a super simple script to generate **SSML** from markdown. It can also optionally generate an `.ogg` audio file from theSSML it generates.
+This is a super simple script to generate **SSML** from markdown. It can also optionally generate an `.ogg` audio file from the SSML it generates.
 
 An example SSML parser is the [google cloud text-to-speech API](https://cloud.google.com/text-to-speech/)
 
