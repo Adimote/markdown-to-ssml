@@ -12,6 +12,8 @@ class Renderer(mistune.Renderer):
         return f"<emphasis level=\"strong\">{text}</emphasis>"
     def linebreak(self):
         return f"<break time=\"400ms\"/>\n"
+    def hrule(self):
+        return f"<break time=\"600ms\"/>\n"
     def paragraph(self, text):
         return f"{text}<break time=\"100ms\"/>\n"
     def footnote_ref(self, key, index):
